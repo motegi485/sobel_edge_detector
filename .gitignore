@@ -1,0 +1,9 @@
+/target
+
+# inputフォルダ
+original_images/*
+!original_images/.gitkeep
+
+# outputフォルダ
+processed_images/*
+!processed_images/.gitkeep
