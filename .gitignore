@@ -2,8 +2,9 @@
 
 # inputフォルダ
 original_images/*
-!original_images/.gitkeep
+!original_images/edge_detection_test.jpg
 
 # outputフォルダ
 processed_images/*
-!processed_images/.gitkeep
+!processed_images/grayscale.png
+!processed_images/edge.png
