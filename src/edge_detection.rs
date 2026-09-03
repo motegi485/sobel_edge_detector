@@ -1,12 +1,13 @@
 use image::{ImageBuffer, Luma, Rgb};
 use ndarray::array;
+use std::error::Error;
 
-pub fn convert_to_grayscale(input_path: &str) -> ImageBuffer<Luma<u8>, Vec<u8>> {
+pub fn convert_to_grayscale(
+    input_path: &str,
+) -> Result<ImageBuffer<Luma<u8>, Vec<u8>>, Box<dyn Error>> {
     println!("==== 画像のグレースケール化を開始 ====");
 
-    let original_img: ImageBuffer<Rgb<u8>, Vec<u8>> = image::open(input_path)
-        .expect("画像の読み込みに失敗しました")
-        .into_rgb8();
+    let original_img: ImageBuffer<Rgb<u8>, Vec<u8>> = image::open(input_path)?.into_rgb8();
     let (width, height) = original_img.dimensions();
     let mut grayscale_img: ImageBuffer<Luma<u8>, Vec<u8>> = ImageBuffer::new(width, height);
 
@@ -19,7 +20,7 @@ pub fn convert_to_grayscale(input_path: &str) -> ImageBuffer<Luma<u8>, Vec<u8>> 
     }
 
     println!("==== 画像のグレースケール化を完了 ====");
-    grayscale_img
+    Ok(grayscale_img)
 }
 
 pub fn apply_sobel(
