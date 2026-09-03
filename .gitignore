@@ -6,5 +6,5 @@ original_images/*
 
 # outputフォルダ
 processed_images/*
-!processed_images/grayscale.png
-!processed_images/edge.png
+!processed_images/edge_detection_test_grayscale.png
+!processed_images/edge_detection_test_edge.png
